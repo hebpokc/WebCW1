@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models
 {
-    internal class Reservation
+    public class Reservation
     {
-        public Guid Id { get; set; }
-        public Guid ComputerId { get; set; }
-        public Guid UserId { get; set; }
+        public int Id { get; set; }
+        public int ComputerId { get; set; }
+        public int UserId { get; set; }
         public DateTime Start {  get; set; }
         public DateTime End { get; set; }
         public string Status { get; set; } = string.Empty;
+        public Computer? Computer { get; set; }
+        public List<User> Users { get; set; } = [];
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    internal class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
         public DbSet<Admin> Admins { get; set; }
@@ -36,6 +36,18 @@ namespace DataAccess
                 .HasOne(g => g.User)
                 .WithMany(u => u.Groups)
                 .HasForeignKey(g => g.UserId);
+
+            builder.Entity<Reservation>()
+                .HasKey(r => r.Id);
+
+            builder.Entity<Reservation>()
+                .HasMany(r => r.Users)
+                .WithMany(u => u.Reservations);
+
+            builder.Entity<Reservation>()
+                .HasOne(r => r.Computer)
+                .WithMany()
+                .HasForeignKey(r => r.ComputerId);
 
             base.OnModelCreating(builder);
         }

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models
 {
-    internal class Computer
+    public class Computer
     {
-        public Guid Id { get; set; }
-        public string Model { get; set; } = string.Empty;
+        public int Id { get; set; }
+        public string Title { get; set; } = string.Empty;
         public string GPU { get; set; } = string.Empty;
         public string CPU {  get; set; } = string.Empty;
         public int RAM { get; set; }
-        public decimal Price { get; set; }
+        public double Price { get; set; }
     }
 }

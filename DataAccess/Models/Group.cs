@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models
 {
-    internal class Group
+    public class Group
     {
-        public Guid Id { get; set; }
-        public Guid UserId { get; set; }
+        public int Id { get; set; }
+        public int UserId { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Game { get; set; } = string.Empty;
         public DateTime JoinDate { get; set; }
-        public ApplicationUser? User { get; set; }
+        public User? User { get; set; }
     }
 }

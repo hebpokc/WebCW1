@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models
 {
-    internal class ApplicationUser : IdentityUser
+    public class User : IdentityUser
     {
-        public Guid AdminId { get; set; }
+        public int AdminId { get; set; }
         public Admin? Admin { get; set; }
         public List<Group> Groups { get; set; } = [];
+        public List<Reservation> Reservations { get; set; } = [];
     }
 }
