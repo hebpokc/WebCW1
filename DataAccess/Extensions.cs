@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DataAccess.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,8 @@ namespace DataAccess
     {
         public static IServiceCollection AddDataAccess(this IServiceCollection servicesCollection)
         {
+            servicesCollection.AddScoped<IUserRepository, UserRepository>();
+
             servicesCollection.AddDbContext<ApplicationDbContext>(x =>
             {
                 x.UseNpgsql("Host=localhost; Database=ComputerClub; Username=vadim; Password=1707");

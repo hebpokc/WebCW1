@@ -1,4 +1,5 @@
 ﻿using DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,25 +16,28 @@ namespace DataAccess.Repositories
             _context = context;
         }
 
-        public async Task CreateAsync(User user)
+        public async Task DeleteById(int id)
         {
-            await _context.Users.AddAsync(user);
+            await _context.Users
+                .Where(u => u.Id == id.ToString())
+                .ExecuteDeleteAsync();
             await _context.SaveChangesAsync();
         }
 
-        public Task DeleteById(User user)
+        public async Task<User?> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Users
+                .FirstOrDefaultAsync(u => u.Id == id.ToString());
         }
 
-        public Task GetByIdAsync(User user)
+        public async Task UpdateAsync(User user)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(User user)
-        {
-            throw new NotImplementedException();
+            await _context.Users
+                .Where(u => u.Id == user.Id)
+                .ExecuteUpdateAsync(u => u
+                .SetProperty(x => x.UserName, user.UserName)
+                .SetProperty(x => x.Email, user.Email)
+                .SetProperty(x => x.PasswordHash, user.PasswordHash));
         }
     }
 }
