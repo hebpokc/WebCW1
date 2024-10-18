@@ -14,6 +14,6 @@ namespace DataAccess.Models
         public string Name { get; set; } = string.Empty;
         public string Game { get; set; } = string.Empty;
         public DateTime JoinDate { get; set; }
-        public User? User { get; set; }
+        public List<User> Users { get; set; } = [];
     }
 }

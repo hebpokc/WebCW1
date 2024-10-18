@@ -15,15 +15,11 @@ namespace BusinessLogic.Services
             await userRepository.DeleteById(id);
         }
 
-        public async Task<string> GetByIdAsync(int id)
+        public async Task<User?> GetByIdAsync(int id)
         {
             var user = await userRepository.GetByIdAsync(id);
-            if (user is null)
-            {
-                throw new Exception("User not founded");
-            }
 
-            return user.UserName;
+            return user;
         }
 
         public async Task UpdateAsync(int id, string username, string email, string password)

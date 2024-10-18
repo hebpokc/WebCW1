@@ -33,9 +33,9 @@ namespace DataAccess
                 .HasKey(g => g.Id);
 
             builder.Entity<Group>()
-                .HasOne(g => g.User)
-                .WithMany(u => u.Groups)
-                .HasForeignKey(g => g.UserId);
+                .HasMany(g => g.Users)
+                .WithOne(u => u.Group)
+                .HasForeignKey(g => g.GroupId);
 
             builder.Entity<Reservation>()
                 .HasKey(r => r.Id);
