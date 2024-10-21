@@ -6,13 +6,13 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Group = DataAccess.Models.Group;
 
-namespace DataAccess.DataRepositories.Interfaces
+namespace BusinessLogic.LogicServices.Interfaces
 {
-    public interface IGroupRepository
+    public interface IGroupService
     {
-        Task CreateAsync(Group group);
+        Task CreateAsync(string userId, string name, string game, DateTime joindate);
         Task<Group?> GetByIdAsync(int id);
-        Task UpdateAsync(Group group);
+        Task UpdateAsync(string userId, string name, string game, DateTime joindate);
         Task DeleteAsync(int id);
     }
 }

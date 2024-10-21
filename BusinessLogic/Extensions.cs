@@ -14,6 +14,10 @@ namespace BusinessLogic
         public static IServiceCollection AddBusinessLogic(this IServiceCollection servicesCollection)
         {
             servicesCollection.AddScoped<IUserService, UserService>();
+            servicesCollection.AddScoped<IAdminService, AdminService>();
+            servicesCollection.AddScoped<IComputerService, ComputerService>();
+            servicesCollection.AddScoped<IGroupService, GroupService>();
+            servicesCollection.AddScoped<IReservationService, ReservationService>();
 
             return servicesCollection;
         }
