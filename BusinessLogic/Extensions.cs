@@ -1,4 +1,5 @@
-﻿using BusinessLogic.Services;
+﻿using BusinessLogic.LogicServices.Interfaces;
+using BusinessLogic.LogicServices.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;

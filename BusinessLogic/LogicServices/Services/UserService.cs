@@ -1,12 +1,13 @@
-﻿using DataAccess.Models;
-using DataAccess.Repositories;
+﻿using BusinessLogic.LogicServices.Interfaces;
+using DataAccess.DataRepositories.Interface;
+using DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.Services
+namespace BusinessLogic.LogicServices.Services
 {
     internal class UserService(IUserRepository userRepository) : IUserService
     {

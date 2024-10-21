@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Repositories
+namespace BusinessLogic.LogicServices.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserService
     {
         Task<User?> GetByIdAsync(int id);
-        Task UpdateAsync(User user);
-        Task DeleteById (int id);
+        Task DeleteById(int id);
+        Task UpdateAsync(int id, string username, string email, string password);
     }
 }
