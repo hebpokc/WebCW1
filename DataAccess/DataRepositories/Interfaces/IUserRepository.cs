@@ -9,8 +9,8 @@ namespace DataAccess.DataRepositories.Interface
 {
     public interface IUserRepository
     {
-        Task<User?> GetByIdAsync(int id);
+        Task<User?> GetByIdAsync(string id);
         Task UpdateAsync(User user);
-        Task DeleteById(int id);
+        Task DeleteById(string id);
     }
 }

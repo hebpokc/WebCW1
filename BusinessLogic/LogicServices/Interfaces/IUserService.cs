@@ -9,8 +9,8 @@ namespace BusinessLogic.LogicServices.Interfaces
 {
     public interface IUserService
     {
-        Task<User?> GetByIdAsync(int id);
-        Task DeleteById(int id);
-        Task UpdateAsync(int id, string username, string email, string password);
+        Task<User?> GetByIdAsync(string id);
+        Task DeleteById(string id);
+        Task UpdateAsync(string username, string email, string password);
     }
 }

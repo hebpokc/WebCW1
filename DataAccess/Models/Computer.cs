@@ -12,7 +12,7 @@ namespace DataAccess.Models
         public string Title { get; set; } = string.Empty;
         public string GPU { get; set; } = string.Empty;
         public string CPU {  get; set; } = string.Empty;
-        public int RAM { get; set; }
-        public double Price { get; set; }
+        public int? RAM { get; set; }
+        public double? Price { get; set; }
     }
 }

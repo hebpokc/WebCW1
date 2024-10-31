@@ -11,23 +11,22 @@ namespace BusinessLogic.LogicServices.Services
 {
     internal class UserService(IUserRepository userRepository) : IUserService
     {
-        public async Task DeleteById(int id)
+        public async Task DeleteById(string id)
         {
             await userRepository.DeleteById(id);
         }
 
-        public async Task<User?> GetByIdAsync(int id)
+        public async Task<User?> GetByIdAsync(string id)
         {
             var user = await userRepository.GetByIdAsync(id);
 
             return user;
         }
 
-        public async Task UpdateAsync(int id, string username, string email, string password)
+        public async Task UpdateAsync(string username, string email, string password)
         {
             var user = new User
             {
-                Id = id.ToString(),
                 UserName = username,
                 Email = email,
                 PasswordHash = password

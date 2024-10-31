@@ -17,18 +17,18 @@ namespace DataAccess.DataRepositories.Repositories
             _context = context;
         }
 
-        public async Task DeleteById(int id)
+        public async Task DeleteById(string id)
         {
             await _context.Users
-                .Where(u => u.Id == id.ToString())
+                .Where(u => u.Id == id)
                 .ExecuteDeleteAsync();
             await _context.SaveChangesAsync();
         }
 
-        public async Task<User?> GetByIdAsync(int id)
+        public async Task<User?> GetByIdAsync(string id)
         {
             return await _context.Users
-                .FirstOrDefaultAsync(u => u.Id == id.ToString());
+                .FirstOrDefaultAsync(u => u.Id == id);
         }
 
         public async Task UpdateAsync(User user)

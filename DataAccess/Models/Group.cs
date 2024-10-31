@@ -13,7 +13,7 @@ namespace DataAccess.Models
         public string UserId { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public string Game { get; set; } = string.Empty;
-        public DateTime JoinDate { get; set; }
+        public DateTime? JoinDate { get; set; }
         public List<User> Users { get; set; } = [];
     }
 }
