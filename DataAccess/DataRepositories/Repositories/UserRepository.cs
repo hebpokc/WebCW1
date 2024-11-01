@@ -30,15 +30,5 @@ namespace DataAccess.DataRepositories.Repositories
             return await _context.Users
                 .FirstOrDefaultAsync(u => u.Id == id);
         }
-
-        public async Task UpdateAsync(User user)
-        {
-            await _context.Users
-                .Where(u => u.Id == user.Id)
-                .ExecuteUpdateAsync(u => u
-                .SetProperty(x => x.UserName, user.UserName)
-                .SetProperty(x => x.Email, user.Email)
-                .SetProperty(x => x.PasswordHash, user.PasswordHash));
-        }
     }
 }

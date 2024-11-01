@@ -1,6 +1,7 @@
 ﻿using BusinessLogic.LogicServices.Interfaces;
 using DataAccess.DataRepositories.Interface;
 using DataAccess.Models;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,8 @@ namespace BusinessLogic.LogicServices.Services
 {
     internal class UserService(IUserRepository userRepository) : IUserService
     {
-        public async Task DeleteById(string id)
+
+        public async Task DeleteAsync(string id)
         {
             await userRepository.DeleteById(id);
         }
@@ -21,18 +23,6 @@ namespace BusinessLogic.LogicServices.Services
             var user = await userRepository.GetByIdAsync(id);
 
             return user;
-        }
-
-        public async Task UpdateAsync(string username, string email, string password)
-        {
-            var user = new User
-            {
-                UserName = username,
-                Email = email,
-                PasswordHash = password
-            };
-
-            await userRepository.UpdateAsync(user);
         }
     }
 }
