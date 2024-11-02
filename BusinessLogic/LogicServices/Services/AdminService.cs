@@ -33,7 +33,7 @@ namespace BusinessLogic.LogicServices.Services
             return admin;
         }
 
-        public async Task UpdateAsync(string userId)
+        public async Task UpdateAsync(int id, string userId)
         {
             var admin = new Admin
             {

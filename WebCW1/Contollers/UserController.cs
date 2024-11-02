@@ -30,13 +30,15 @@ namespace WebCW1.Contollers
             }
             return Ok(user);
         }
+
         [HttpDelete("delete/byId")]
         public async Task<IActionResult> DeleteById(string id)
         {
             await _userService.DeleteAsync(id);
             return Ok(new { message = "User successfuly deleted"});
         }
-        [HttpPut("update")]
+
+        [HttpPut("update/byId")]
         public async Task<IActionResult> UpdateById(string id ,string username, string email, string password)
         {
             var user = await _userManager.FindByIdAsync(id);

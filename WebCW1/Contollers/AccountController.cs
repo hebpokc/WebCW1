@@ -22,6 +22,7 @@ namespace WebCW1.Contollers
             _signInManager = signInManager;
             _configuration = configuration;
         }
+
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
@@ -40,6 +41,7 @@ namespace WebCW1.Contollers
 
             return BadRequest(ModelState);
         }
+
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
