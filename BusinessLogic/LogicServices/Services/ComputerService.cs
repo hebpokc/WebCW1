@@ -37,10 +37,11 @@ namespace BusinessLogic.LogicServices.Services
             return computer;
         }
 
-        public async Task UpdateAsync(string title, string gpu, string cpu, int ram, double price)
+        public async Task UpdateAsync(int id, string title, string gpu, string cpu, int ram, double price)
         {
             var computer = new Computer
             {
+                Id = id,
                 Title = title,
                 GPU = gpu,
                 CPU = cpu,
