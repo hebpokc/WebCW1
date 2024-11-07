@@ -10,6 +10,7 @@ namespace BusinessLogic.LogicServices.Interfaces
     public interface IUserService
     {
         Task<User?> GetByIdAsync(string id);
-        Task DeleteAsync(string id);
+        Task DeleteByIdAsync(string id);
+        Task<string> GetIdByUsernameAsync(string username);
     }
 }

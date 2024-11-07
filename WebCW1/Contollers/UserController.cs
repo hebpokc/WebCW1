@@ -31,10 +31,18 @@ namespace WebCW1.Contollers
             return Ok(user);
         }
 
+        [HttpGet("get/usernameById")]
+        public async Task<IActionResult> GetIdByUsername(string username)
+        {
+            var id = await _userService.GetIdByUsernameAsync(username);
+
+            return Ok(id);
+        }
+
         [HttpDelete("delete/byId")]
         public async Task<IActionResult> DeleteById(string id)
         {
-            await _userService.DeleteAsync(id);
+            await _userService.DeleteByIdAsync(id);
             return Ok(new { message = "User successfuly deleted"});
         }
 

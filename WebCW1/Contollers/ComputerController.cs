@@ -25,7 +25,7 @@ namespace WebCW1.Contollers
         [HttpDelete("delete/byId")]
         public async Task<IActionResult> DeleteById(int id)
         {
-            await _computerService.DeleteAsync(id);
+            await _computerService.DeleteByIdAsync(id);
             return Ok(new { message = "Computer successfuly deleted" });
         }
 

@@ -17,7 +17,7 @@ namespace DataAccess.DataRepositories.Repositories
             _context = context;
         }
 
-        public async Task DeleteById(string id)
+        public async Task DeleteByIdAsync(string id)
         {
             await _context.Users
                 .Where(u => u.Id == id)
@@ -29,6 +29,14 @@ namespace DataAccess.DataRepositories.Repositories
         {
             return await _context.Users
                 .FirstOrDefaultAsync(u => u.Id == id);
+        }
+
+        public async Task<string> GetIdByUsernameAsync(string username)
+        {
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.UserName == username);
+
+            return user?.Id ?? string.Empty;
         }
     }
 }

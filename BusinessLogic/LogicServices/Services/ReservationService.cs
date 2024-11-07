@@ -25,9 +25,9 @@ namespace BusinessLogic.LogicServices.Services
             await reservationRepository.CreateAsync(reservation);
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteByIdAsync(int id)
         {
-            await reservationRepository.DeleteAsync(id);
+            await reservationRepository.DeleteByIdAsync(id);
         }
 
         public Task<Reservation?> GetByIdAsync(int id)
@@ -35,10 +35,11 @@ namespace BusinessLogic.LogicServices.Services
             return reservationRepository.GetByIdAsync(id);
         }
 
-        public async Task UpdateAsync(int computerId, string userId, DateTime start, DateTime end, string status)
+        public async Task UpdateAsync(int id, int computerId, string userId, DateTime start, DateTime end, string status)
         {
             var reservation = new Reservation
             {
+                Id = id,
                 ComputerId = computerId,
                 UserId = userId,
                 Start = start,

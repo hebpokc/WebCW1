@@ -24,7 +24,7 @@ namespace DataAccess.DataRepositories.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteByIdAsync(int id)
         {
             await _context.Groups
                 .Where(g => g.Id == id)
@@ -43,10 +43,9 @@ namespace DataAccess.DataRepositories.Repositories
             await _context.Groups
                 .Where(g => g.Id == group.Id)
                 .ExecuteUpdateAsync(x => x
-                .SetProperty(x => x.UserId, group.UserId)
                 .SetProperty(x => x.Name, group.Name)
                 .SetProperty(x => x.Game, group.Game)
-                .SetProperty(x => x.JoinDate, group.JoinDate));
+                .SetProperty(x => x.CreatedDate, group.CreatedDate));
         }
     }
 }

@@ -21,9 +21,9 @@ namespace BusinessLogic.LogicServices.Services
             await adminRepository.CreateAsync(admin);
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteByIdAsync(int id)
         {
-            await adminRepository.DeleteAsync(id);
+            await adminRepository.DeleteByIdAsync(id);
         }
 
         public async Task<Admin?> GetByIdAsync(int id)

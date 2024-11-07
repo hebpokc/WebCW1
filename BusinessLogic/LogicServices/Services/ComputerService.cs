@@ -25,9 +25,9 @@ namespace BusinessLogic.LogicServices.Services
             await computerRepository.CreateAsync(computer);
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteByIdAsync(int id)
         {
-            await computerRepository.DeleteAsync(id);
+            await computerRepository.DeleteByIdAsync(id);
         }
 
         public async Task<Computer?> GetByIdAsync(int id)

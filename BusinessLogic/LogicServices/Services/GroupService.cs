@@ -11,22 +11,21 @@ namespace BusinessLogic.LogicServices.Services
 {
     internal class GroupService(IGroupRepository groupRepository) : IGroupService
     {
-        public async Task CreateAsync(string userId, string name, string game, DateTime joindate)
+        public async Task CreateAsync(string name, string game, DateTime createdDate)
         {
             var group = new Group
             {
-                UserId = userId,
                 Name = name,
                 Game = game,
-                JoinDate = joindate,
+                CreatedDate = createdDate,
             };
 
             await groupRepository.CreateAsync(group);
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteByIdAsync(int id)
         {
-            await groupRepository.DeleteAsync(id);
+            await groupRepository.DeleteByIdAsync(id);
         }
 
         public async Task<Group?> GetByIdAsync(int id)
@@ -34,14 +33,14 @@ namespace BusinessLogic.LogicServices.Services
             return await groupRepository.GetByIdAsync(id);
         }
 
-        public async Task UpdateAsync(string userId, string name, string game, DateTime joindate)
+        public async Task UpdateAsync(int id, string name, string game, DateTime createdDate)
         {
             var group = new Group
             {
-                UserId = userId,
+                Id = id,
                 Name = name,
                 Game = game,
-                JoinDate = joindate,
+                CreatedDate = createdDate,
             };
 
             await groupRepository.UpdateAsync(group);

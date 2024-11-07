@@ -12,6 +12,6 @@ namespace DataAccess.DataRepositories.Interface
         Task CreateAsync(Computer computer);
         Task<Computer?> GetByIdAsync(int id);
         Task UpdateAsync(Computer computer);
-        Task DeleteAsync(int id);
+        Task DeleteByIdAsync(int id);
     }
 }

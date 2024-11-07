@@ -25,7 +25,7 @@ namespace WebCW1.Contollers
         [HttpDelete("delete/byId")]
         public async Task<IActionResult> DeleteById(int id)
         {
-            await _adminService.DeleteAsync(id);
+            await _adminService.DeleteByIdAsync(id);
             return Ok(new { message = "Admin successfuly deleted" });
         }
 

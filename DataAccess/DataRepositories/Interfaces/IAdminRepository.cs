@@ -12,6 +12,6 @@ namespace DataAccess.DataRepositories.Interface
         Task CreateAsync(Admin admin);
         Task<Admin?> GetByIdAsync(int id);
         Task UpdateAsync(Admin admin);
-        Task DeleteAsync(int id);
+        Task DeleteByIdAsync(int id);
     }
 }

@@ -13,6 +13,6 @@ namespace DataAccess.DataRepositories.Interfaces
         Task CreateAsync(Group group);
         Task<Group?> GetByIdAsync(int id);
         Task UpdateAsync(Group group);
-        Task DeleteAsync(int id);
+        Task DeleteByIdAsync(int id);
     }
 }

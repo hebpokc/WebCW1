@@ -13,6 +13,6 @@ namespace BusinessLogic.LogicServices.Interfaces
         Task CreateAsync(string title, string gpu, string cpu, int ram, double price);
         Task<Computer?> GetByIdAsync(int id);
         Task UpdateAsync(int id, string title, string gpu, string cpu, int ram, double price);
-        Task DeleteAsync(int id);
+        Task DeleteByIdAsync(int id);
     }
 }

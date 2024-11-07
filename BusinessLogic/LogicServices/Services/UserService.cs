@@ -13,9 +13,9 @@ namespace BusinessLogic.LogicServices.Services
     internal class UserService(IUserRepository userRepository) : IUserService
     {
 
-        public async Task DeleteAsync(string id)
+        public async Task DeleteByIdAsync(string id)
         {
-            await userRepository.DeleteById(id);
+            await userRepository.DeleteByIdAsync(id);
         }
 
         public async Task<User?> GetByIdAsync(string id)
@@ -23,6 +23,13 @@ namespace BusinessLogic.LogicServices.Services
             var user = await userRepository.GetByIdAsync(id);
 
             return user;
+        }
+
+        public async Task<string> GetIdByUsernameAsync(string username)
+        {
+            var id = await userRepository.GetIdByUsernameAsync(username);
+
+            return id;
         }
     }
 }

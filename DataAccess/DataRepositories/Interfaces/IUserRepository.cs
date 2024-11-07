@@ -10,6 +10,7 @@ namespace DataAccess.DataRepositories.Interface
     public interface IUserRepository
     {
         Task<User?> GetByIdAsync(string id);
-        Task DeleteById(string id);
+        Task DeleteByIdAsync(string id);
+        Task<string> GetIdByUsernameAsync(string username);
     }
 }

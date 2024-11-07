@@ -10,9 +10,9 @@ namespace BusinessLogic.LogicServices.Interfaces
 {
     public interface IGroupService
     {
-        Task CreateAsync(string userId, string name, string game, DateTime joindate);
+        Task CreateAsync(string name, string game, DateTime createdDate);
         Task<Group?> GetByIdAsync(int id);
-        Task UpdateAsync(string userId, string name, string game, DateTime joindate);
-        Task DeleteAsync(int id);
+        Task UpdateAsync(int id, string name, string game, DateTime createdDate);
+        Task DeleteByIdAsync(int id);
     }
 }
