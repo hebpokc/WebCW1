@@ -19,6 +19,15 @@ namespace DataAccess.DataRepositories.Repositories
         public async Task CreateAsync(Admin admin)
         {
             await _context.Admins.AddAsync(admin);
+
+            await _context.SaveChangesAsync();
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == admin.UserId);
+            if (user != null)
+            {
+                user.AdminId = admin.Id;
+            }
+
             await _context.SaveChangesAsync();
         }
 

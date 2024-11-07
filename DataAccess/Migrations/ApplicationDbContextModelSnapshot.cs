@@ -36,9 +36,6 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
-
                     b.ToTable("Admins");
                 });
 
@@ -188,6 +185,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("character varying(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AdminId")
+                        .IsUnique();
 
                     b.HasIndex("GroupId");
 
@@ -348,17 +348,6 @@ namespace DataAccess.Migrations
                     b.ToTable("ReservationUser");
                 });
 
-            modelBuilder.Entity("DataAccess.Models.Admin", b =>
-                {
-                    b.HasOne("DataAccess.Models.User", "User")
-                        .WithOne("Admin")
-                        .HasForeignKey("DataAccess.Models.Admin", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("DataAccess.Models.Reservation", b =>
                 {
                     b.HasOne("DataAccess.Models.Computer", "Computer")
@@ -370,9 +359,15 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Models.User", b =>
                 {
+                    b.HasOne("DataAccess.Models.Admin", "Admin")
+                        .WithOne("User")
+                        .HasForeignKey("DataAccess.Models.User", "AdminId");
+
                     b.HasOne("DataAccess.Models.Group", "Group")
                         .WithMany("Users")
                         .HasForeignKey("GroupId");
+
+                    b.Navigation("Admin");
 
                     b.Navigation("Group");
                 });
@@ -443,14 +438,14 @@ namespace DataAccess.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("DataAccess.Models.Admin", b =>
+                {
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("DataAccess.Models.Group", b =>
                 {
                     b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("DataAccess.Models.User", b =>
-                {
-                    b.Navigation("Admin");
                 });
 #pragma warning restore 612, 618
         }
