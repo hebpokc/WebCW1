@@ -12,5 +12,7 @@ namespace DataAccess.DataRepositories.Interface
         Task<User?> GetByIdAsync(string id);
         Task DeleteByIdAsync(string id);
         Task<string> GetIdByUsernameAsync(string username);
+        Task AddUserToGroupAsync(string id, int groupId);
+        Task RemoveUserFromGroupAsync(string id, int groupId);
     }
 }

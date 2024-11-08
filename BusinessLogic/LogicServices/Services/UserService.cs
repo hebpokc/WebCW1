@@ -12,10 +12,19 @@ namespace BusinessLogic.LogicServices.Services
 {
     internal class UserService(IUserRepository userRepository) : IUserService
     {
+        public async Task AddUserToGroupAsync(string id, int groupId)
+        {
+            await userRepository.AddUserToGroupAsync(id, groupId);
+        }
 
         public async Task DeleteByIdAsync(string id)
         {
             await userRepository.DeleteByIdAsync(id);
+        }
+
+        public async Task RemoveUserFromGroupAsync(string id, int groupId)
+        {
+            await userRepository.RemoveUserFromGroupAsync(id, groupId);
         }
 
         public async Task<User?> GetByIdAsync(string id)

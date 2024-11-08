@@ -36,6 +36,13 @@ namespace DataAccess.DataRepositories.Repositories
             await _context.Admins
                 .Where(a => a.Id == id)
                 .ExecuteDeleteAsync();
+
+            var user = _context.Users.FirstOrDefault(u => u.AdminId == id);
+            if (user != null)
+            {
+                user.AdminId = null;
+            }
+
             await _context.SaveChangesAsync();
         }
 

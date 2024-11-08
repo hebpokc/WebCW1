@@ -41,9 +41,9 @@ namespace WebCW1.Contollers
         }
 
         [HttpPut("update/byId")]
-        public async Task<IActionResult> UpdateById(int id, string name, string game, DateTime joinDate)
+        public async Task<IActionResult> UpdateById(int id, string name, string game, DateTime createdDate)
         {
-            await _groupService.UpdateAsync(id, name, game, joinDate);
+            await _groupService.UpdateAsync(id, name, game, createdDate);
             return Ok(new { message = "Group successfuly updated" });
         }
     }
