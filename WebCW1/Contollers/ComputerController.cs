@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.LogicServices.Interfaces;
+using DataAccess.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 
@@ -39,6 +40,12 @@ namespace WebCW1.Contollers
             }
 
             return Ok(computer);
+        }
+
+        [HttpGet("get/allComputers")]
+        public async Task<ActionResult<IEnumerable<Computer>>> GetComputers()
+        {
+            return Ok(await _computerService.GetAllComputersAsync());
         }
 
         [HttpPut("update/byId")]

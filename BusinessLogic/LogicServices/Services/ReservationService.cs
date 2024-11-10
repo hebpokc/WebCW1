@@ -30,6 +30,11 @@ namespace BusinessLogic.LogicServices.Services
             await reservationRepository.DeleteByIdAsync(id);
         }
 
+        public async Task<IEnumerable<Reservation>> GetAllReservationsAsync()
+        {
+            return await reservationRepository.GetAllReservationsAsync();
+        }
+
         public Task<Reservation?> GetByIdAsync(int id)
         {
             return reservationRepository.GetByIdAsync(id);

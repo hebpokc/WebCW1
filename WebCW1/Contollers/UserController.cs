@@ -31,6 +31,12 @@ namespace WebCW1.Contollers
             return Ok(user);
         }
 
+        [HttpGet("get/allUsers")]
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        {
+            return Ok(await _userService.GetAllUsersAsync());
+        }
+
         [HttpGet("get/usernameById")]
         public async Task<IActionResult> GetIdByUsername(string username)
         {

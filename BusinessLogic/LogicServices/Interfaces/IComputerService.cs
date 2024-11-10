@@ -14,5 +14,6 @@ namespace BusinessLogic.LogicServices.Interfaces
         Task<Computer?> GetByIdAsync(int id);
         Task UpdateAsync(int id, string title, string gpu, string cpu, int ram, double price);
         Task DeleteByIdAsync(int id);
+        Task<IEnumerable<Computer>> GetAllComputersAsync();
     }
 }

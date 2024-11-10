@@ -13,5 +13,6 @@ namespace DataAccess.DataRepositories.Interface
         Task<Computer?> GetByIdAsync(int id);
         Task UpdateAsync(Computer computer);
         Task DeleteByIdAsync(int id);
+        Task<IEnumerable<Computer>> GetAllComputersAsync();
     }
 }

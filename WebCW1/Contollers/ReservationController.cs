@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.LogicServices.Interfaces;
+using DataAccess.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebCW1.Contollers
@@ -38,6 +39,12 @@ namespace WebCW1.Contollers
             }
 
             return Ok(reservation);
+        }
+
+        [HttpGet("get/AllReservations")]
+        public async Task<ActionResult<IEnumerable<Reservation>>> GetReservations()
+        {
+            return Ok(await _reservationService.GetAllReservationsAsync());
         }
 
         [HttpPut("update/byId")]

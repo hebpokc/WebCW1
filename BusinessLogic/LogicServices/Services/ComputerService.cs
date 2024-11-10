@@ -30,6 +30,11 @@ namespace BusinessLogic.LogicServices.Services
             await computerRepository.DeleteByIdAsync(id);
         }
 
+        public async Task<IEnumerable<Computer>> GetAllComputersAsync()
+        {
+           return await computerRepository.GetAllComputersAsync();
+        }
+
         public async Task<Computer?> GetByIdAsync(int id)
         {
             var computer = await computerRepository.GetByIdAsync(id);

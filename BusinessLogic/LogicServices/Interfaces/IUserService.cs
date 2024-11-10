@@ -14,5 +14,6 @@ namespace BusinessLogic.LogicServices.Interfaces
         Task<string> GetIdByUsernameAsync(string username);
         Task AddUserToGroupAsync(string id, int groupId);
         Task RemoveUserFromGroupAsync(string id, int groupId);
+        Task<IEnumerable<User>> GetAllUsersAsync();
     }
 }

@@ -13,5 +13,6 @@ namespace DataAccess.DataRepositories.Interfaces
         Task<Reservation?> GetByIdAsync(int id);
         Task UpdateAsync(Reservation reservation);
         Task DeleteByIdAsync(int id);
+        Task<IEnumerable<Reservation>> GetAllReservationsAsync();
     }
 }

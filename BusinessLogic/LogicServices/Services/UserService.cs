@@ -40,5 +40,10 @@ namespace BusinessLogic.LogicServices.Services
 
             return id;
         }
+
+        public async Task<IEnumerable<User>> GetAllUsersAsync()
+        {
+            return await userRepository.GetAllUsersAsync();
+        }
     }
 }

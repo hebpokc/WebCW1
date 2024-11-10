@@ -13,5 +13,6 @@ namespace BusinessLogic.LogicServices.Interfaces
         Task<Reservation?> GetByIdAsync(int id);
         Task UpdateAsync(int id, int computerId, string userId, DateTime start, DateTime end, string status);
         Task DeleteByIdAsync(int id);
+        Task<IEnumerable<Reservation>> GetAllReservationsAsync();
     }
 }

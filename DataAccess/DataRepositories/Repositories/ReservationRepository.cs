@@ -33,6 +33,12 @@ namespace DataAccess.DataRepositories.Repositories
             await _context.SaveChangesAsync();
         }
 
+        public async Task<IEnumerable<Reservation>> GetAllReservationsAsync()
+        {
+            return await _context.Reservations
+                .ToListAsync();
+        }
+
         public async Task<Reservation?> GetByIdAsync(int id)
         {
             return await _context.Reservations.FirstOrDefaultAsync(r => r.Id == id);

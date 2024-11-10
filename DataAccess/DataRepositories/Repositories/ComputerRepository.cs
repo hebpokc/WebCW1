@@ -31,6 +31,12 @@ namespace DataAccess.DataRepositories.Repositories
             await _context.SaveChangesAsync();
         }
 
+        public async Task<IEnumerable<Computer>> GetAllComputersAsync()
+        {
+            return await _context.Computers
+                .ToListAsync();
+        }
+
         public async Task<Computer?> GetByIdAsync(int id)
         {
             return await _context.Computers.FirstOrDefaultAsync(c => c.Id == id);
